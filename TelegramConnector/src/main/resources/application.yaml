@@ -1,0 +1,38 @@
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_HOST:localhost:9092}
+    consumer:
+      group-id: telegram-connector
+      auto-offset-reset: earliest
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        spring.json.trusted.packages: com.avegus.commons.model
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  datasource:
+    url: ${DB_HOST:jdbc:postgresql://localhost:5432/postgres}
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: postgresql
+
+bot:
+  token: your-token-here
+  name: ${BOT_NAME:"Catzzz"}
+
+topics:
+  cat:
+    add: "cat.add"
+    like: "cat.like"
+    dislike: "cat.dislike"
+    delete: "cat.delete"
+    out-of-random-cats: "cat.out_of_random_cats"
+    request-by-id: "cat.request.by_id"
+    request-by-user: "cat.request.by_user"
+    request-random: "cat.request.random"
+    response-by-id: "cat.response.by_id"
+    response-by-user: "cat.response.by_user"
+    response-random: "cat.response.random"

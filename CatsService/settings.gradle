@@ -1,0 +1,4 @@
+rootProject.name = 'CatsService'
+
+include('CatsCommons')
+project(':CatsCommons').projectDir = file('../CatsCommons')

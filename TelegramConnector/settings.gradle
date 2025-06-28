@@ -1,0 +1,4 @@
+rootProject.name = 'TelegramConnector'
+
+include('CatsCommons')
+project(':CatsCommons').projectDir = file('../CatsCommons')
